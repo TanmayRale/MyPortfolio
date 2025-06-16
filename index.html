@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      #nav {
+        position: sticky;
+        top: 0px;
+        z-index: 1000;
+        width: 100%;
+        height: 8vh;
+        background-color: white;
+        box-shadow: 0px 0.5px 10px black;
+        font-size: 20px;
+        font-weight: bolder;
+      }
+
+      #nav:hover {
+        box-shadow: 0px 2px 10px rgb(166, 0, 255);
+        transition: 1s;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        padding: 18px;
+        float: left;
+      }
+
+      li > a {
+        text-decoration: none;
+        color: black;
+      }
+
+      li > a:hover {
+        color: rgb(166, 0, 255);
+      }
+
+      #profile {
+        width: 100%;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      #profile > div {
+        margin-right: 50px;
+      }
+
+      .img-circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: green;
+        background-image: url("assets/profileImage.jpg");
+        background-repeat: no-repeat;
+        background-size: 200px;
+        transition: transform 1s ease-in-out;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+
+      .img-circle:hover {
+        transform: rotateY(360deg);
+      }
+
+      .content {
+        transform: scale(1.2);
+        text-align: center;
+      }
+
+      .content h1,
+      .content h3 {
+        font-weight: 700;
+        color: #000;
+        position: relative;
+        background-clip: text;
+        -webkit-background-clip: text;
+        z-index: 1;
+      }
+
+      .content h1::after,
+      .content h3::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at var(--x, 50%) var(--y, 50%),
+          rgba(255, 255, 255, 0.6),
+          transparent 40%
+        );
+        pointer-events: none;
+        mix-blend-mode: screen;
+        transition: background-position 0.2s ease;
+      }
+
+      .content h1:hover::after,
+      .content h3:hover::after {
+        opacity: 1;
+      }
+
+      #education {
+        width: 100%;
+        height: 50vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      #education > img {
+        width: 500px;
+      }
+
+      .myContent {
+        width: 800px;
+        height: 200px;
+      }
+
+      .myContent:hover {
+        transition: 2s;
+        color: rgb(166, 0, 255);
+      }
+
+      #projects {
+        position: relative;
+        top: 300px;
+        width: 100%;
+        height: 160vh;
+        border-bottom-right-radius:50px;
+        border-bottom-left-radius: 500px;
+        background-color: #003140;
+      }
+
+      #projects > img {
+        position: absolute;
+        top: -275.5px;
+      }
+
+      .typing-effect {
+        font-family: "Orbitron", sans-serif;
+        position: absolute;
+        left: 55vw;
+        top: -100px;
+        font-weight: bold;
+        font-size: 4rem;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        width: fit-content;
+        margin: 0 auto;
+        background: linear-gradient(
+          90deg,
+          #00ff9f,
+          #00e0ff,
+          #0075ff,
+          #8a2be2,
+          #00ff9f
+        );
+        background-size: 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradientShift 5s infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .projects-area {
+        position: relative;
+        top: 350px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .project {
+        font-family: "Share Tech Mono", monospace; /* Techy mono font */
+        width: 500px;
+        height: 200px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: white;
+      }
+
+      .project .title {
+        font-size: 1.8rem;
+        color: #00ffe1;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .project .discription {
+        font-size: 1.1rem; /* Good readability */
+        color: #cfcfcf;
+        margin-bottom: 10px;
+      }
+
+      .project a {
+        font-size: 1rem;
+        color: #00e0ff;
+        text-decoration: none;
+        border-bottom: 1px dashed #00e0ff;
+        transition: color 0.3s ease, border-bottom-color 0.3s ease;
+      }
+
+      .project a:hover {
+        color: #00ffaa;
+        border-bottom-color: #00ffaa;
+      }
+
+      .project:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+        box-shadow: 0px 1px 20px rgba(255, 0, 251, 0.701);
+      }
+
+      .skills{
+        position: relative;
+        top: 200px;
+        width: 100%;
+        height: 50vh;
+        
+      }
+    
+    .glass-box {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      padding: 30px;
+      margin: 30px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .glass-box:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+    }
+
+    .skills-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      padding: 20px;
+    }
+
+    .skill-item {
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ffe0aa;
+    }
+
+    .skill-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #00ffee;
+    }
+
+     #contact {
+      position: relative;
+      top: 300px;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1e1e2f, #0f0f0f);
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      color: #00ffee;
+      margin-bottom: 20px;
+    }
+
+    .contact-card {
+      display: inline-block;
+      padding: 20px 40px;
+      border-radius: 15px;
+      color: #fff;
+      line-height: 1.8;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .contact-card p a {
+      color: #00ffee;
+      text-decoration: none;
+    }
+
+    .contact-card p a:hover {
+      text-decoration: underline;
+    }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const headers = document.querySelectorAll(".content h1, .content h3");
+        headers.forEach((header) => {
+          header.setAttribute("data-text", header.textContent);
+          header.addEventListener("mousemove", (e) => {
+            const rect = e.target.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            header.style.setProperty("--x", `${x}px`);
+            header.style.setProperty("--y", `${y}px`);
+          });
+        });
+
+        const text = "Projects...";
+        let i = 0;
+        let forward = true;
+        const typingElement = document.querySelector(".typing-effect");
+
+        function typeLoop() {
+          if (forward) {
+            i++;
+            if (i > text.length) {
+              forward = false;
+              setTimeout(typeLoop, 1000);
+              return;
+            }
+          } else {
+            i--;
+            if (i < 0) {
+              forward = true;
+              setTimeout(typeLoop, 500);
+              return;
+            }
+          }
+          typingElement.textContent = text.substring(0, i);
+          setTimeout(typeLoop, forward ? 150 : 50);
+        }
+
+        typeLoop();
+      });
+    </script>
+  </head>
+  <body>
+    <nav id="nav">
+      <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact me</a></li>
+      </ul>
+    </nav>
+
+    <div id="profile">
+      <div class="img-circle"></div>
+      <div class="content">
+        <h1>👋 Hi, I am Tanmay Deepak Rale</h1>
+        <h2>Web developer</h2>
+      </div>
+    </div>
+
+    <div id="education">
+      <div class="myContent">
+        <h1>Education :-</h1>
+        <h2>
+          Bachelor of Engineering (B.E.) in Computer Science and Engineering
+          (Artificial Intelligence & Machine Learning)
+        </h2>
+      </div>
+      <img src="./assets/Study.gif" alt="" />
+    </div>
+
+    <div id="projects">
+      <img src="./assets/coding image.gif" alt="" />
+      <h1 class="typing-effect">Projects...</h1>
+
+      <div class="projects-area">
+        <div class="project">
+          <h3 class="title">Brand Catalyst</h3>
+          <p class="discription">
+            <b>Discription :- </b><b>Brand Catalyst</b> is a modern web application designed to help brands manage and showcase their digital presence. Built using React, Bootstrap, Node.js, and MongoDB, it delivers a responsive and scalable experience.</b>
+          </p>
+          <b>Project Link :- </b> <a href="https://github.com/TanmayRale/Brand-Catalyst" target="_blank">Go to Brand Catalyst Project</a>
+        </div>
+
+        <div class="project">
+          <h3 class="title">Yoga Pose Detection</h3>
+          <p class="discription">
+            <b>Discription :- </b><b>Yoga Pose Detection</b> is an AI-powered application that identifies and evaluates yoga postures in real-time using computer vision. Developed with Python and OpenCV, it helps users improve their form and posture accuracy.</b>
+          </p>
+          <b>Project Link :- </b> <a href="https://github.com/TanmayRale/Yoga-Pose-Detection" target="_blank">Go to Yoga Pose Detection Project</a>
+        </div>
+
+
+        <div class="project">
+          <h3 class="title">Blockchain-Based Voting System</h3>
+          <p class="discription">
+            <b>Discription :- </b><b>Blockchain-Based Voting System</b> is a secure and transparent voting system built using Solidity, Web3.js, and Hardhat. It allows users to cast tamper-proof votes through a decentralized interface powered by HTML, CSS, and JavaScript.</b>
+          </p>
+          <b>Project Link :- </b> <a href="https://github.com/TanmayRale/Voting-Blockchain-Project" target="_blank">Go to Blockchain-Based Voting System Project</a>
+        </div>
+
+        <div class="project">
+          <h3 class="title">Video Editor</h3>
+          <p class="discription">
+            <b>Discription :- </b><b>Video Editor</b> is a simple yet powerful video editing tool built using Python libraries like MoviePy and OpenCV. It supports trimming, merging, adding audio, and applying filters with an easy-to-use script-based interface.</b>
+          </p>
+          <b>Project Link :- </b> <a href="https://github.com/TanmayRale/Video-Editor" target="_blank">Go to Video Editor Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills">
+      <section id="skills">
+      <div class="glass-box">
+        <center><h2>My Skills</h2></center>
+      <div class="skills-showcase">
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><p>JavaScript</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"><p>Bootstrap</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><p>React</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><p>Node.js</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><p>PHP</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"><p>Django</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><p>MySQL</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"><p>MongoDB</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"><p>Oracle</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><p>C</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"><p>C++</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><p>Java</p></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><p>Python</p></div>
+      </div>
+    </div>
+  </section>
+
+    </div>
+
+    <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-card">
+      <p><strong>📧 Email:</strong> <a href="mailto:tanmayrale33@gmail.com">tanmayrale33@gmail.com</a></p>
+      <p><strong>📞 Phone:</strong> <a href="tel:+917556744017">+91-7558744017</a></p>
+      <p><strong>💻 GitHub:</strong> <a href="https://github.com/TanmayRale" target="_blank">github.com/TanmayRale</a></p>
+    </div>
+  </section>
+
+  </body>
+</html>
