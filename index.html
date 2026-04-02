@@ -16,6 +16,11 @@
       * {
         margin: 0px;
         padding: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        overflow-x: hidden;
       }
       #nav {
         position: sticky;
@@ -36,11 +41,14 @@
 
       ul {
         list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
       }
 
       li {
         padding: 18px;
-        float: left;
       }
 
       li > a {
@@ -54,11 +62,13 @@
 
       #profile {
         width: 100%;
-        height: 40vh;
+        min-height: 40vh;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
       }
 
       #profile > div {
@@ -121,20 +131,23 @@
 
       #education {
         width: 100%;
-        height: 50vh;
-
+        min-height: 50vh;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        gap: 30px;
+        padding: 20px;
       }
 
       #education > img {
-        width: 500px;
+        width: min(500px, 45vw);
+        max-width: 100%;
+        height: auto;
       }
 
       .myContent {
-        width: 800px;
-        height: 200px;
+        width: min(800px, 50vw);
+        min-height: 200px;
       }
 
       .myContent:hover {
@@ -146,15 +159,19 @@
         position: relative;
         top: 300px;
         width: 100%;
-        height: 160vh;
-        border-bottom-right-radius:50px;
+        min-height: 160vh;
+        border-bottom-right-radius: 50px;
         border-bottom-left-radius: 500px;
         background-color: #003140;
+        padding-bottom: 40px;
       }
 
       #projects > img {
         position: absolute;
         top: -275.5px;
+        max-width: min(700px, 90vw);
+        width: 100%;
+        height: auto;
       }
 
       .typing-effect {
@@ -163,7 +180,7 @@
         left: 55vw;
         top: -100px;
         font-weight: bold;
-        font-size: 4rem;
+        font-size: clamp(2rem, 6vw, 4rem);
         white-space: nowrap;
         overflow: hidden;
         border-right: 3px solid;
@@ -202,14 +219,16 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        gap: 20px;
         width: 100%;
-        height: 100vh;
+        min-height: 100vh;
+        padding: 0 20px 30px;
       }
 
       .project {
         font-family: "Share Tech Mono", monospace; /* Techy mono font */
-        width: 500px;
-        height: 200px;
+        width: min(500px, calc(100% - 20px));
+        min-height: 200px;
         padding: 20px;
         border-radius: 10px;
         background-color: white;
@@ -251,7 +270,7 @@
         position: relative;
         top: 200px;
         width: 100%;
-        height: 50vh;
+        min-height: 50vh;
         
       }
     
@@ -262,7 +281,8 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
       padding: 30px;
-      margin: 30px;
+      margin: 30px auto;
+      width: min(1200px, calc(100% - 40px));
       transition: all 0.5s ease-in-out;
     }
 
@@ -326,6 +346,8 @@
       line-height: 1.8;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px 32px;
     }
 
     .contact-card p a {
@@ -335,6 +357,184 @@
 
     .contact-card p a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 1100px) {
+      #projects {
+        min-height: auto;
+      }
+
+      .projects-area {
+        min-height: auto;
+      }
+    }
+
+    @media (min-width: 993px) {
+      #projects > img {
+        top: -241px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      #nav {
+        height: auto;
+      }
+
+      ul {
+        justify-content: center;
+      }
+
+      #profile {
+        padding: 40px 20px;
+      }
+
+      #profile > div {
+        margin-right: 0;
+      }
+
+      .content {
+        transform: scale(1);
+      }
+
+      #education {
+        flex-direction: column;
+        justify-content: center;
+        min-height: auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      #education > img {
+        width: min(430px, 92vw);
+      }
+
+      .myContent {
+        width: min(800px, 100%);
+        min-height: auto;
+      }
+
+      #projects {
+        top: 140px;
+        border-bottom-left-radius: 220px;
+      }
+
+      #projects > img {
+        position: static;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .typing-effect {
+        position: static;
+        display: block;
+        width: fit-content;
+        margin: 20px auto 0;
+      }
+
+      .projects-area {
+        top: 40px;
+        justify-content: center;
+      }
+
+      .skills {
+        top: 120px;
+      }
+
+      #contact {
+        top: 180px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #nav {
+        font-size: 16px;
+      }
+
+      li {
+        padding: 12px 10px;
+      }
+
+      .img-circle {
+        width: 160px;
+        height: 160px;
+        border-radius: 80px;
+        background-size: 160px;
+      }
+
+      .content h1 {
+        font-size: 1.6rem;
+      }
+
+      .content h2 {
+        font-size: 1.1rem;
+      }
+
+      #projects {
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 140px;
+      }
+
+      #projects > img {
+        width: 100%;
+        max-width: none;
+        transform: translateY(-100px);
+      }
+
+      .projects-area {
+        top: 30px;
+        padding: 0 12px 24px;
+      }
+
+      .project {
+        padding: 16px;
+      }
+
+      .project .title {
+        font-size: 1.4rem;
+      }
+
+      .project .discription {
+        font-size: 1rem;
+      }
+
+      .skills-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 20px;
+      }
+
+      .skill-item p {
+        font-size: 16px;
+      }
+
+      #contact h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      li {
+        padding: 10px 8px;
+      }
+
+      .content h1 {
+        font-size: 1.35rem;
+      }
+
+      .typing-effect {
+        white-space: normal;
+        border-right: none;
+        text-align: center;
+      }
+
+      .contact-card {
+        padding: 16px 14px;
+        line-height: 1.6;
+        justify-content: center;
+      }
+
+      .contact-card p {
+        width: 100%;
+      }
     }
     </style>
     <script>
